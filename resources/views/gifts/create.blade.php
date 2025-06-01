@@ -29,25 +29,25 @@
             </div>
         @endif
 
-        <form action="{{ route('gift.store') }}" method="POST">
+        <form action="{{ route('gift.store') }}" method="POST" enctype="multipart/form-data"> {{-- Tambahkan enctype --}}
             @csrf {{-- Token keamanan Laravel --}}
-
+        
             <label for="message">Pesan Spesial:</label>
             <textarea id="message" name="message" rows="4" placeholder="Tulis pesanmu di sini...">{{ old('message') }}</textarea>
             
-            <label for="image_url">URL Gambar (opsional):</label>
-            <input type="url" id="image_url" name="image_url" value="{{ old('image_url') }}" placeholder="https://contoh.com/gambar.jpg">
+            {{-- Ubah input URL gambar menjadi input file --}}
+            <label for="image_upload">Upload Gambar (opsional):</label>
+            <input type="file" id="image_upload" name="image_upload"> {{-- Ganti nama dari image_url dan tipe menjadi file --}}
             
             <label for="video_url">URL Video YouTube (opsional):</label>
             <input type="url" id="video_url" name="video_url" value="{{ old('video_url') }}" placeholder="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-
-            {{-- TAMBAHKAN INPUT USIA DI SINI --}}
+        
             <label for="age">Usia Penerima (untuk jumlah balon, opsional):</label>
             <input type="number" id="age" name="age" value="{{ old('age') }}" min="1" placeholder="Contoh: 25">
-
+        
             <label for="other_link">Link Lainnya (opsional):</label>
             <input type="url" id="other_link" name="other_link" value="{{ old('other_link') }}" placeholder="https://tokopedia.com/hadiahpilihan">
-
+        
             <button type="submit">Buat Link Kejutan!</button>
         </form>
     </div>

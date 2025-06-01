@@ -238,8 +238,11 @@
     <div class="container container-main-content"> 
         {{-- 2. Pop-up Card Ucapan --}}
         <div id="birthdayCardPopup">
-            <h2>Selamat Ulang Tahun{{ $gift->age ? ' ke-'.$gift->age : '' }}! 🥳</h2>
-            <p>Semoga hari ini penuh kebahagiaan dan semua harapanmu tercapai!</p>
+            <h2>Wadidaw!<br> Ada yang H-3 Jadi Kepala Dua Setengah Lewat Dikit Nih! 😜</h2>
+            <p>Psst, Dinda si paling manis! 🤫<br><br>
+                Deg-degan nggak nih, 3 hari lagi resmi masuk klub <b>26 tahun</b>? Katanya sih di usia segini, backsound hidup mulai ada bunyi <b>'kriuk'</b> pas bangun tidur, tapi tenang aja, cantiknya kamu nggak akan luntur kok, paling cuma nambah bijaksana <b>(dikit!)</b>.<br><br>
+                Semoga pas hari-H nanti, semua doa dan harapan terbaikmu terbang tinggi dan terkabul ya! Siap-siap juga, ada sesuatu yang spesial menantimu! 😉<br>
+                Klik tombol dibawah buat intip spoiler kado! 🤪</p>
             <button id="openMainGiftButton">Lihat Kado Spesialmu!</button>
         </div>
 
@@ -268,7 +271,7 @@
 
     {{-- Elemen Audio (Preload agar siap dimainkan) --}}
     <audio id="popSound" src="https://gifftme-pull.b-cdn.net/audio/balloon-pop.mp3" preload="auto"></audio>
-    <audio id="hbdSound" src="https://gifftme-pull.b-cdn.net/audio/happy-birthday.mp3" preload="auto"></audio>
+    <audio id="hbdSound" src="https://gifftme-pull.b-cdn.net/audio/happy-birthday.mp3" preload="auto" loop></audio>
 
     <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -451,15 +454,23 @@
             });
         }
 
-            if (openMainGiftButton) {
-                openMainGiftButton.addEventListener('click', () => {
-                    birthdayCardPopup.style.display = 'none'; // Sembunyikan card
-                    birthdayCardPopup.classList.remove('visible'); // Hapus class animasi
-                    if (hbdAudio) {
-                        hbdAudio.pause();
-                        hbdAudio.currentTime = 0;
-                    }
-                    giftContentSection.style.display = 'block'; // Tampilkan hadiah utama
+                    if (openMainGiftButton) {
+                        openMainGiftButton.addEventListener('click', () => {
+                            birthdayCardPopup.style.display = 'none'; // Sembunyikan card
+                            birthdayCardPopup.classList.remove('visible'); // Hapus class animasi
+
+                            // Hentikan musik jika sedang berjalan sebelum menampilkan hadiah utama (jika perlu)
+                            // if (hbdAudio) {
+                            //     hbdAudio.pause();
+                            //     hbdAudio.currentTime = 0;
+                            // }
+
+                            giftContentSection.style.display = 'block'; // Tampilkan hadiah utama
+
+                            // Mulai putar musik HBD di sini dan biarkan berulang
+                            if (hbdAudio) {
+                                hbdAudio.play().catch(e => console.warn("HBD sound play error:", e));
+                            }
 
                     if (videoUrl && giftVideoContainer) {
                         const embedUrl = convertToEmbedUrl(videoUrl);
