@@ -238,7 +238,7 @@
     <div class="container container-main-content"> 
         {{-- 2. Pop-up Card Ucapan --}}
         <div id="birthdayCardPopup">
-            <h2>Wadidaw!<br> Ada yang H-3 Jadi Kepala Dua Setengah Lewat Dikit Nih! 😜</h2>
+            <h2>Wadidaw!<br><br> Ada yang H-3 Jadi Kepala Dua Setengah Lewat Dikit Nih! 😜</h2>
             <p>Psst, Dinda si paling manis! 🤫<br><br>
                 Deg-degan nggak nih, 3 hari lagi resmi masuk klub <b>26 tahun</b>? Katanya sih di usia segini, backsound hidup mulai ada bunyi <b>'kriuk'</b> pas bangun tidur, tapi tenang aja, cantiknya kamu nggak akan luntur kok, paling cuma nambah bijaksana <b>(dikit!)</b>.<br><br>
                 Semoga pas hari-H nanti, semua doa dan harapan terbaikmu terbang tinggi dan terkabul ya! Siap-siap juga, ada sesuatu yang spesial menantimu! 😉<br>
